@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 # */AIPND-revision/intropyproject-classify-pet-images/get_pet_labels.py
-#                                                                             
+#
 # PROGRAMMER: Robert J Lambert
 # DATE CREATED: 6/27/2020
 # REVISED DATE:
@@ -44,17 +44,20 @@ def get_pet_labels(image_dir):
     # Replace None with the results_dic dictionary that you created with this
     # function
 
-
     remove_type = lambda i: "".join(
-            "" if char.isdigit() else char for char in str(i).split('.')[0].replace('_', ' ')).strip()
+        "" if char.isdigit() else char
+        for char in str(i).split(".")[0].replace("_", " ")
+    ).strip()
 
     # list_names = list( map( remove_type, listdir( image_dir ) ) )
 
-    valid_file_list = [x for x in listdir(image_dir) if not x.startswith('.')]
+    valid_file_list = [x for x in listdir(image_dir) if not x.startswith(".")]
 
-    #remove_invalid_files = lambda i: f if not f.startswith('.') for f in listdir(i)
+    # remove_invalid_files = lambda i: f if not f.startswith('.') for f in listdir(i)
 
-    result_dic = {'{}'.format(x): ['{}'.format(remove_type(x.lower()))] for x in valid_file_list}
+    result_dic = {
+        "{}".format(x): ["{}".format(remove_type(x.lower()))] for x in valid_file_list
+    }
 
     # result_dic = {'{}'.format(x.lower()):['{}'.format(x.lower())] for x in list_names}
 
